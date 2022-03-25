@@ -56,16 +56,11 @@
       </div>
     {/each}
   </div>
-  <!-- recent posts -->
-  <h2 class="flex items-baseline gap-4 !mb-2">
-    All Posts
-    <ButtonLink href="/posts" size="small" raised={false} class="opacity-60">View All</ButtonLink>
-  </h2>
-  <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
-    {#each allPosts as poste}
-      <div class="flex p-4 border border-slate-300 dark:border-slate-700 rounded-lg">
-        <PostPreview {poste} small />
-      </div>
-    {/each}
-  </div>
+  <h2>Number of post: {allPosts.length}</h2>
+ <h3>Article list:</h3>
+ {#each allPosts as title}
+   <ul>
+     <li>{title}</li>
+   </ul>
+ {/each}
 </div>
