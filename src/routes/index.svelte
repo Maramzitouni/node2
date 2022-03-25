@@ -62,9 +62,9 @@
     <ButtonLink href="/posts" size="small" raised={false} class="opacity-60">View All</ButtonLink>
   </h2>
   <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
-    {#each allPosts as post}
+    {#each allPosts as poste}
       <div class="flex p-4 border border-slate-300 dark:border-slate-700 rounded-lg">
-        <PostPreview {post} small />
+        <PostPreview {poste} small />
       </div>
     {/each}
   </div>
