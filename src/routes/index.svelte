@@ -5,6 +5,7 @@
     return {
       props: {
         recentPosts: await fetch('/posts.json?limit=2').then((res) => res.json())
+        allPosts: await fetch('/posts.json').then((res) => res.json())
       }
     }
   }
@@ -16,6 +17,7 @@
   import { name } from '$lib/info.js'
 
   export let recentPosts
+  export let allPosts
 </script>
 
 <svelte:head>
@@ -49,6 +51,18 @@
   </h2>
   <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
     {#each recentPosts as post}
+      <div class="flex p-4 border border-slate-300 dark:border-slate-700 rounded-lg">
+        <PostPreview {post} small />
+      </div>
+    {/each}
+  </div>
+  <!-- recent posts -->
+  <h2 class="flex items-baseline gap-4 !mb-2">
+    All Posts
+    <ButtonLink href="/posts" size="small" raised={false} class="opacity-60">View All</ButtonLink>
+  </h2>
+  <div class="grid gap-4 grid-cols-1 sm:grid-cols-2">
+    {#each allPosts as post}
       <div class="flex p-4 border border-slate-300 dark:border-slate-700 rounded-lg">
         <PostPreview {post} small />
       </div>
